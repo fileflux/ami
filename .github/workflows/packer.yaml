@@ -1,0 +1,27 @@
+---
+name: Packer Validate
+
+on:   # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  packer_validate_job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setting up Hashicorp Packer
+        uses: hashicorp-contrib/setup-packer@v3
+        with:
+          packer-version: 1.10.3
+
+      - name: Setting packer logs to Verbose
+        run: export PACKER_LOG=1
+
+      - name: Download Packer plugin libraries
+        run: packer init ami.pkr.hcl
+
+      - name: Packer template validation
+        run: packer validate ami.pkr.hcl
