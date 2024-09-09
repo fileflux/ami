@@ -20,14 +20,14 @@ Make sure your AWS CLI is properly configured with the necessary credentials and
 
 ```plaintext
 ami/
-├── ami.pkr.hcl            # Packer template for AMI creation
-├── init.sh                # Shell script for initializing the environment
-├── heartbeat.sh           # Script to prevent timeouts during the build process
-├── finish.sh              # Cleanup and finalization script after AMI creation
-├── zfs_add_script.sh      # Script for adding ZFS configuration to the instance
-├── zfs_pool_init.sh       # Script for initializing ZFS pools on the AMI
-├── .git/                  # Git repository metadata
-└── README.md              # Project documentation
+├── ami.pkr.hcl            
+├── init.sh                
+├── heartbeat.sh           
+├── finish.sh              
+├── zfs_add_script.sh      
+├── zfs_pool_init.sh       
+├── .git/                  
+└── README.md              
 ```
 
 ### What Each File Does
